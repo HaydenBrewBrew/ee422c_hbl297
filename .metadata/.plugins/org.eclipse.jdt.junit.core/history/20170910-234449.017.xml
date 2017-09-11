@@ -1,7 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?><testrun name="SortToolsTest (1)" project="Project 1" tests="3" started="3" failures="0" errors="0" ignored="0">
-  <testsuite name="assignment1.SortToolsTest" time="0.003">
-    <testcase name="testFindFoundFull" classname="assignment1.SortToolsTest" time="0.001"/>
-    <testcase name="testIsSorted" classname="assignment1.SortToolsTest" time="0.0"/>
-    <testcase name="testInsertGeneralPartialEnd" classname="assignment1.SortToolsTest" time="0.002"/>
-  </testsuite>
-</testrun>

@@ -75,8 +75,22 @@ public class SortTools {
 		 return r;
 		}
 	public static int insertInPlace(int[] x, int n, int v){
-		
-		return 0;
+		int index;
+		for(index = 0; index < n; index++) {
+			if(x[index]==v) {
+				return(v);
+			}
+			if(x[index]>v) {
+				x[n+1] = x[index];
+				x[index] = v;
+				SortTools.insertSort(x,n+1);
+				break;
+			}
+		}
+		if(index==n) {
+			x[n+1] = v;
+		}
+		return n+1;
 	}
 
 	public static void insertSort(int[] x, int n){

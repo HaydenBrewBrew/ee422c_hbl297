@@ -36,8 +36,13 @@ public class SortToolsTest {
 		int[] expected = new int[]{10, 20, 30};
 		int[] expected2 = new int[]{10, 20, 30,35};
 		int[] expected3 = new int[]{5, 10, 20, 30};
+		int[] expected4 = new int[]{ 10, 20, 25, 30};
 		assertArrayEquals(expected, SortTools.insertGeneral(x, 3, 20));
 		assertArrayEquals(expected3, SortTools.insertGeneral(x, 3, 5));
+		assertArrayEquals(expected2, SortTools.insertGeneral(x, 3, 35));
+		assertArrayEquals(expected4, SortTools.insertGeneral(x, 3, 25));
+		assertArrayEquals(x,SortTools.insertGeneral(x, 5, 20));
+		
 	}
 	@Test(timeout = 2000)
 	public void testinsertSortPartialEnd(){
