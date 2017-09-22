@@ -1,4 +1,4 @@
-package Assignment1;
+package assignment1;
 
 import static org.junit.Assert.assertArrayEquals;
 import static org.junit.Assert.assertEquals;

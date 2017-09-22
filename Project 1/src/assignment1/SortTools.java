@@ -8,7 +8,7 @@
  * Slip days used: 0
  */
 
-package Assignment1;
+package assignment1;
 import java.util.Arrays;
 public class SortTools {
 	/**
