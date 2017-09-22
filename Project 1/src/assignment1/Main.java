@@ -3,7 +3,7 @@
  * have a main method in SortTools.java.
  */
 
-package Assignment1;
+package assignment1;
 import java.util.Arrays;
 public class Main {
 	public static void main(String [] args) {
