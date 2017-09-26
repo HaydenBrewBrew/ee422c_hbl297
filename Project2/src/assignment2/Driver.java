@@ -1,9 +1,22 @@
+/*  * EE422C Project 2 (Mastermind) submission by
+ * Replace <...> with your actual data.
+ * Hayden Lydick
+ * hbl297
+ * Slip days used: <0>
+ * Fall 2017
+ */
 package assignment2;
 
 import java.util.*;
 
 public class Driver {
 	 public static void main(String args[]) {
+		 boolean testflg = false;
+		 if(args.length > 0){
+			 if((args[0] == "1")||(args[0].equals("true"))){
+				 testflg = true;
+			 }
+		 }
 	String input;
 	Scanner read = new Scanner(System.in);
 	System.out.println("Welcome to Mastermind");
@@ -33,9 +46,8 @@ public class Driver {
 		if(my_Game.roundNumber == 0) {
 			System.out.println("You Lose!");
 		}
-		
+
 	}
 	}
 	 }
 }
-	

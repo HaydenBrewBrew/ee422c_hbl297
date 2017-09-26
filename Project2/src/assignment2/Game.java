@@ -1,3 +1,10 @@
+/*  * EE422C Project 2 (Mastermind) submission by
+ * Replace <...> with your actual data.
+ * Hayden Lydick
+ * hbl297
+ * Slip days used: <0>
+ * Fall 2017
+ */
 package assignment2;
 import java.util.*;
 import java.lang.String;
@@ -21,7 +28,7 @@ public class Game {
 			System.out.println("You Have " + roundNumber + " Guess(es) Left");
 	}
 
-	public Peg[] buildSecretCode(int length) {
+	private Peg[] buildSecretCode(int length) {
 		Peg[] code = new Peg[length];
 		String scode = SecretCodeGenerator.getInstance().getNewSecretCode();
 		for(int i = 0; i < length; i++) {
@@ -45,28 +52,31 @@ public class Game {
 	}
 
 	public String compareToSecret(Peg[] code1) {
-		int b = 0;			
+		int b = 0;
 		int w = 0;
 		int temp;
-		char zero = 0;
-		Peg[] code = code1.clone();//allows for edits in the following for loops 
+		char zero = "_".charAt(0);
+		Peg[] code = new Peg[codelength];
+		for(int i = 0; i < codelength; i++) {
+			code[i] = new Peg(secretCode[i].getColor(), i);
+		}
 		for(int i  = 0; i  < codelength; i++) {
-			for(int j = 0; (j) < codelength; j++) {
-				temp = code[i].pegFeedback(secretCode[j]);
-				if(temp == 1) { 
+				temp = code[i].pegFeedback(code1[i]);
+				if((temp == 1)) {
 					b++;
 					code[i].changeColor(zero);
 				}
 			}
-				}
-		for(int k  = 0; k  < codelength; k++) {
-			for(int m = 0; (m) < codelength; m++) {
-				temp = code[k].pegFeedback(secretCode[m]);
-				if(temp == -1) { 
+		for(int i  = 0; i  < codelength; i++) {
+			if(secretCode[i].getColor() != zero) {
+			for(int j = 0; (j) < codelength; j++) {
+				temp = code[i].pegFeedback(code1[j]);
+				if((temp == -1)) {
 					w++;
-					code[k].changeColor(zero);
+					code[i].changeColor(zero);
 					};
 				}
+			}
 			}
 		return (Integer.toString(b) + "b_" + Integer.toString(w) + "w");
 	}
@@ -87,5 +97,5 @@ public class Game {
 		}
 		return(sb.toString());
 		}
-	
+
 }
