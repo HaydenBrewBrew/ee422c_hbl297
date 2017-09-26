@@ -4,14 +4,16 @@ public class Board {
 
 	private static final int default_rounds = 12;
 	public int maxrounds;
-	private String[] roundResults = new String[maxrounds];;
+	private String[] roundResults;
 
 	public Board(){
 		this.maxrounds = default_rounds;
+		roundResults = new String[this.maxrounds];
 	}
 
 	public Board(int roundnum) {
 		this.maxrounds = roundnum;
+		roundResults = new String[this.maxrounds];
 	}
 
 	public  void history(int roundsleft){

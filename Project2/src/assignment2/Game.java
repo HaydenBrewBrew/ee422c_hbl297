@@ -13,7 +13,6 @@ public class Game {
 	public Game(boolean testing) {
 		this.testflag = testing;
 		this.roundNumber = GameConfiguration.guessNumber;
-		this.currentRoundleft = this.roundNumber;
 		this.codelength = GameConfiguration.pegNumber;
 		this.secretCode = buildSecretCode(codelength);
 		if(this.testflag) {
@@ -33,14 +32,15 @@ public class Game {
 
 	public boolean runGame(String input) {
 		Peg[] code = this.buildCode(input);
+		String temp = this.getCode(code);
 		String result = this.compareToSecret(code);
-//		myBoard.storeRoundData(this.getCode(code), result, roundNumber);
+		myBoard.storeRoundData(temp, result, roundNumber);
 		if(result.equals("4b_0w")) {
 			return true;
 		}
 		else {System.out.println(result);}
 		this.roundNumber--;
-		System.out.println("You have " + roundNumber + "guess(es) left.");
+		System.out.println("You have " + roundNumber + " guess(es) left.");
 		return false;
 	}
 
@@ -51,7 +51,7 @@ public class Game {
 		char zero = 0;
 		Peg[] code = code1.clone();//allows for edits in the following for loops 
 		for(int i  = 0; i  < codelength; i++) {
-			for(int j = 0; j < codelength; j++) {
+			for(int j = 0; (j) < codelength; j++) {
 				temp = code[i].pegFeedback(secretCode[j]);
 				if(temp == 1) { 
 					b++;
@@ -60,11 +60,11 @@ public class Game {
 			}
 				}
 		for(int k  = 0; k  < codelength; k++) {
-			for(int m = 0; m < codelength; m++) {
+			for(int m = 0; (m) < codelength; m++) {
 				temp = code[k].pegFeedback(secretCode[m]);
 				if(temp == -1) { 
 					w++;
-						code[k].changeColor(zero);
+					code[k].changeColor(zero);
 					};
 				}
 			}

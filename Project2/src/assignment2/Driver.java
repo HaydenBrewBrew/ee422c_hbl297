@@ -10,17 +10,21 @@ public class Driver {
 	while(true) {
 	System.out.println("Do you want to play a new game? (Y/N):");
 	input = read.next();
-	if((input == "Y")||(input == "N")) {
-		System.out.println("Invalid Input Ending Program");
+	if((input.equals("N"))) {
+		System.out.println("Ending Program");
 		return;
 	}
-	if((input == "N")) {
-		System.out.println("Ending Program");
+	if((!input.equals("Y"))) {
+		System.out.println("Invalid Input Ending Program");
 		return;
 	}
 	Game my_Game = new Game(true);
 	while(my_Game.roundNumber > 0) {
 		input = read.next();
+		if(input.equals("HISTORY")) {
+			my_Game.myBoard.history(my_Game.roundNumber);
+			continue;
+		}
 		boolean result = my_Game.runGame(input);
 		if(result) {
 			System.out.println("You Win!");
