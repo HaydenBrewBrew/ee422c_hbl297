@@ -14,11 +14,16 @@ public class Peg {
 	} 
 	
 	public Peg(char c, int i) {
+		this.color = c;
 		this.location = i;
 	}
 	
 	public char getColor() {
 		return color;
+	}
+	
+	public void changeColor(char x) {
+		this.color = x;
 	}
 	
 	public boolean equals(Peg test) {
