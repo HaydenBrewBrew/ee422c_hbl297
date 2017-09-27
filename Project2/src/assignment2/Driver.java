@@ -31,9 +31,13 @@ public class Driver {
 		System.out.println("Invalid Input Ending Program");
 		return;
 	}
-	Game my_Game = new Game(true);
+	Game my_Game = new Game(testflg);
 	while(my_Game.roundNumber > 0) {
 		input = read.next();
+		if((input.length() != GameConfiguration.pegNumber) || !(isAllUpperCase(input))){
+			System.out.println("INVALID GUESS");
+			continue;
+		}
 		if(input.equals("HISTORY")) {
 			my_Game.myBoard.history(my_Game.roundNumber);
 			continue;
@@ -42,7 +46,7 @@ public class Driver {
 		if(result) {
 			System.out.println("You Win!");
 			break;
-		}
+		}Y
 		if(my_Game.roundNumber == 0) {
 			System.out.println("You Lose!");
 		}
@@ -50,4 +54,13 @@ public class Driver {
 	}
 	}
 	 }
+
+	 public static boolean isAllUpperCase(String s){
+		 for(int i = 0; i < s.length(); i ++) {
+		 	if(!Character.isUpperCase(s.charAt(i))){
+				return(false);
+			}
+	 }
+	 return true;
+}
 }
